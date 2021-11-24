@@ -68,7 +68,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Data Urodzenia"/>
-                            <TextBox Grid.Column="1" Name="dataurodzeniaBox"/>
+                            <DatePicker Grid.Column="1" Name="dataurodzeniaBox"/>
                         </Grid>
                         <!-- Pesel -->
                         <Grid>
@@ -86,7 +86,10 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Płeć"/>
-                            <TextBox Grid.Column="1" Name="plecBox"/>
+                            <ComboBox Grid.Column="1" Name="plecBox">
+                                <ComboBoxItem>Mężczyzna</ComboBoxItem>
+                                <ComboBoxItem>Kobieta</ComboBoxItem>
+                            </ComboBox>
                         </Grid>
                         <!-- Klasa -->
                         <Grid>
@@ -106,14 +109,22 @@
                             <Label Content="Grupa"/>
                             <TextBox Grid.Column="1" Name="grupaBox"/>
                         </Grid>
-                        <!-- Zdjęcie -->
+                        <!-- Wczytywanie Zdjęcia -->
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Zdjęcie"/>
-                            <TextBox Grid.Column="1" Name="pleBox"/>
+                            <Button Grid.Column="1">Wczytaj Zdjecie</Button>
+                        </Grid>
+                        <!-- Zdjecie -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Tu bedzie zdjecie"/>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Orientation="Vertical">
