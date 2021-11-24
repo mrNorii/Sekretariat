@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 
     1. Przeznaczenie:
     Aplikacja ma umożliwiać wprowadzanie danych uczniów, nauczycieli i pracowników obsługi. 
+
     Informacje o uczniu muszą zawierać: imię, drugie imię, nazwisko, nazwisko panieńskie, imiona rodziców, datę urodzenia, pesel, zdjęcie, płeć, 
         przynależność do klasy, przynależność do grup (np. językowych) – również międzyklasowych
     Informacje o nauczycielu muszą zawierać: imię, drugie imię(jeśli jest), nazwisko, nazwisko panieńskie, imiona rodziców, datę urodzenia, pesel, zdjęcie, 
@@ -38,6 +39,10 @@ using System.Windows.Shapes;
     Ocenie podlega projekt (1 ocena), GUI(menu – 2 ocena) oraz główna funkcjonalność (3 ocena), harmonogram testowania i lista poprawek (4 ocena)
 ________________________________________________________________________________________________________________________________________________________________________________
 
+    Kolejnosc pracy: 
+        - Stworzenie TabControl
+        - Stworzenie HUD'u w zakladce uczen
+        
 */
 
 namespace Sekretariat

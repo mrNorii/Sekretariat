@@ -7,6 +7,127 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TabControl>
+            <TabItem Header="Uczen">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
 
+                    <StackPanel Grid.Column="0" Orientation="Vertical">
+                        <!-- Imie -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Imie"/>
+                            <TextBox Grid.Column="1" Name="imieBox"/>
+                        </Grid>
+                        <!-- Drugie Imie -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Drugie Imie"/>
+                            <TextBox Grid.Column="1" Name="drugieimieBox"/>
+                        </Grid>
+                        <!-- Nazwisko -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Nazwisko"/>
+                            <TextBox Grid.Column="1" Name="nazwiskoBox"/>
+                        </Grid>
+                        <!-- Nazwisko Panieńskie -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Nazwisko panienskie"/>
+                            <TextBox Grid.Column="1" Name="nazwiskopanienskieBox"/>
+                        </Grid>
+                        <!-- Imiona Rodzicow -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Imiona Rodzicow"/>
+                            <TextBox Grid.Column="1" Name="imionarodzicowBox"/>
+                        </Grid>
+                        <!-- Data Urodzenia -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Data Urodzenia"/>
+                            <TextBox Grid.Column="1" Name="dataurodzeniaBox"/>
+                        </Grid>
+                        <!-- Pesel -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Pesel"/>
+                            <TextBox Grid.Column="1" Name="peselBox"/>
+                        </Grid>
+                        <!-- Płeć -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Płeć"/>
+                            <TextBox Grid.Column="1" Name="plecBox"/>
+                        </Grid>
+                        <!-- Klasa -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Klasa"/>
+                            <TextBox Grid.Column="1" Name="klasaBox"/>
+                        </Grid>
+                        <!-- Grupa -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Grupa"/>
+                            <TextBox Grid.Column="1" Name="grupaBox"/>
+                        </Grid>
+                        <!-- Zdjęcie -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Zdjęcie"/>
+                            <TextBox Grid.Column="1" Name="pleBox"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <Label>Tu bedzie kiedys tabela z danymi</Label>
+                        <!-- <DataGrid> !-->
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Nauczyciel">
+
+            </TabItem>
+            <TabItem Header="Pracownik">
+
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
