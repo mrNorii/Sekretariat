@@ -40,8 +40,10 @@ using System.Windows.Shapes;
 ________________________________________________________________________________________________________________________________________________________________________________
 
     Kolejnosc pracy: 
+        24.11.2021
         - Stworzenie TabControl
-        - Stworzenie HUD'u w zakladce uczen
+        - Stworzenie GUI w zakladce uczen
+        - Stworzenie GUI w zakladce nauczyciel
         
 */
 
