@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sekretariat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <!-- Menu -->
         <Menu>
             <MenuItem Header="Uczeń">
                 <MenuItem Header="Tworzenie" InputGestureText="Ctrl+F"/>
@@ -26,8 +27,10 @@
             </MenuItem>
             
         </Menu>
+        <!-- Koniec menu -->
         
         <TabControl Grid.Row="1">
+            <!-- GUI Uczenia -->
             <TabItem Header="Uczen">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -42,7 +45,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Imie"/>
-                            <TextBox Grid.Column="1" Name="imieBox"/>
+                            <TextBox Grid.Column="1" Name="imieU"/>
                         </Grid>
                         <!-- Drugie Imie -->
                         <Grid>
@@ -51,7 +54,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Drugie Imie"/>
-                            <TextBox Grid.Column="1" Name="drugieimieBox"/>
+                            <TextBox Grid.Column="1" Name="dimieU"/>
                         </Grid>
                         <!-- Nazwisko -->
                         <Grid>
@@ -60,7 +63,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Nazwisko"/>
-                            <TextBox Grid.Column="1" Name="nazwiskoBox"/>
+                            <TextBox Grid.Column="1" Name="nazwiskoU"/>
                         </Grid>
                         <!-- Nazwisko Panieńskie -->
                         <Grid>
@@ -69,7 +72,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Nazwisko panienskie"/>
-                            <TextBox Grid.Column="1" Name="nazwiskopanienskieBox"/>
+                            <TextBox Grid.Column="1" Name="nazwiskoPanU"/>
                         </Grid>
                         <!-- Imiona Rodzicow -->
                         <Grid>
@@ -78,7 +81,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Imiona Rodzicow"/>
-                            <TextBox Grid.Column="1" Name="imionarodzicowBox"/>
+                            <TextBox Grid.Column="1" Name="imionarodzU"/>
                         </Grid>
                         <!-- Data Urodzenia -->
                         <Grid>
@@ -87,7 +90,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Data Urodzenia"/>
-                            <DatePicker Grid.Column="1" Name="dataurodzeniaBox"/>
+                            <DatePicker Grid.Column="1" Name="dataurU"/>
                         </Grid>
                         <!-- Pesel -->
                         <Grid>
@@ -96,7 +99,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Pesel"/>
-                            <TextBox Grid.Column="1" Name="peselBox"/>
+                            <TextBox Grid.Column="1" Name="peselU"/>
                         </Grid>
                         <!-- Płeć -->
                         <Grid>
@@ -105,7 +108,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Płeć"/>
-                            <ComboBox Grid.Column="1" Name="plecBox">
+                            <ComboBox Grid.Column="1" Name="plecU">
                                 <ComboBoxItem>Mężczyzna</ComboBoxItem>
                                 <ComboBoxItem>Kobieta</ComboBoxItem>
                             </ComboBox>
@@ -117,7 +120,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Klasa"/>
-                            <TextBox Grid.Column="1" Name="klasaBox"/>
+                            <TextBox Grid.Column="1" Name="klasaU"/>
                         </Grid>
                         <!-- Grupa -->
                         <Grid>
@@ -126,7 +129,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Grupa"/>
-                            <TextBox Grid.Column="1" Name="grupaBox"/>
+                            <TextBox Grid.Column="1" Name="grupaU"/>
                         </Grid>
                         <!-- Wczytywanie Zdjęcia -->
                         <Grid>
@@ -144,6 +147,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Tu bedzie zdjecie"/>
+                            <Image></Image>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Orientation="Vertical">
@@ -152,7 +156,10 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
-                            <TabItem Header="Nauczyciel">
+            <!-- Koniec GUI Ucznia -->
+            
+            <!-- GUI Nauczyciela -->
+            <TabItem Header="Nauczyciel">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
@@ -167,7 +174,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Imie"/>
-                            <TextBox Grid.Column="1" Name="imieNauczycielBox"/>
+                            <TextBox Grid.Column="1" Name="imieN"/>
                         </Grid>
                         <!-- Drugie Imie -->
                         <Grid>
@@ -176,7 +183,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Drugie Imie"/>
-                            <TextBox Grid.Column="1" Name="drugieimieNauczycielBox"/>
+                            <TextBox Grid.Column="1" Name="dimieN"/>
                         </Grid>
                         <!-- Nazwisko -->
                         <Grid>
@@ -185,7 +192,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Nazwisko"/>
-                            <TextBox Grid.Column="1" Name="nazwiskoNauczycielBox"/>
+                            <TextBox Grid.Column="1" Name="nazwiskoN"/>
                         </Grid>
                         <!-- Nazwisko Panieńskie -->
                         <Grid>
@@ -194,7 +201,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Nazwisko panienskie"/>
-                            <TextBox Grid.Column="1" Name="nazwiskopanienskieNauczycielBox"/>
+                            <TextBox Grid.Column="1" Name="nazwiskoPanN"/>
                         </Grid>
                         <!-- Imiona Rodzicow -->
                         <Grid>
@@ -203,7 +210,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Imiona Rodzicow"/>
-                            <TextBox Grid.Column="1" Name="imionarodzicowNauczycielBox"/>
+                            <TextBox Grid.Column="1" Name="imionarodzN"/>
                         </Grid>
                         <!-- Data Urodzenia -->
                         <Grid>
@@ -212,7 +219,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Data Urodzenia"/>
-                            <DatePicker Grid.Column="1" Name="dataurodzeniaNauczycielBox"/>
+                            <DatePicker Grid.Column="1" Name="dataurN"/>
                         </Grid>
                         <!-- Pesel -->
                         <Grid>
@@ -221,7 +228,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Pesel"/>
-                            <TextBox Grid.Column="1" Name="peselNauczycielBox"/>
+                            <TextBox Grid.Column="1" Name="peselN"/>
                         </Grid>
                         <!-- Płeć -->
                         <Grid>
@@ -230,7 +237,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Płeć"/>
-                            <ComboBox Grid.Column="1" Name="plecNauczycielBox">
+                            <ComboBox Grid.Column="1" Name="plecN">
                                 <ComboBoxItem>Mężczyzna</ComboBoxItem>
                                 <ComboBoxItem>Kobieta</ComboBoxItem>
                             </ComboBox>
@@ -242,7 +249,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Wychowawstwo"/>
-                            <TextBox Grid.Column="1" Name="wychowawstwoNauczycielBox"/>
+                            <TextBox Grid.Column="1" Name="wychowawstwoN"/>
                         </Grid>
                         <!-- Przdmioty Nauczania -->
                         <Grid>
@@ -251,7 +258,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Przedmioty Nauczania"/>
-                            <TextBox Grid.Column="1" Name="przedmiotynauczaniaNauczycielBox"/>
+                            <TextBox Grid.Column="1" Name="przedmiotynauczaniaN"/>
                         </Grid>
                         <!-- Klasa w ktorej uczy z godzinami -->
                         <Grid>
@@ -260,7 +267,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Klasa + Godz w ktorej uczy"/>
-                            <TextBox Grid.Column="1" Name="klasagodzinyNauczycielBox"/>
+                            <TextBox Grid.Column="1" Name="klasagodzinyN"/>
                         </Grid>
                         <!-- Data Zatrudnienia -->
                         <Grid>
@@ -269,14 +276,156 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Data Zatrudnienia"/>
-                            <DatePicker Grid.Column="1" Name="datazatrudnieniaNauczycielBox"/>
+                            <DatePicker Grid.Column="1" Name="datazatrN"/>
                         </Grid>
+                        <!-- Zdjecie -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Tu bedzie zdjecie"/>
+                            <Image></Image>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <Label>Tu bedzie kiedys tabela z danymi</Label>
+                        <!-- <DataGrid> !-->
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Pracownik">
+            <!-- Koniec GUI Nauczyciela -->
 
+            <!-- GUI Pracownika -->
+            <TabItem Header="Pracownik">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Orientation="Vertical">
+                        <!-- Imie -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Imie"/>
+                            <TextBox Grid.Column="1" Name="imieP"/>
+                        </Grid>
+                        <!-- Drugie Imie -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Drugie Imie"/>
+                            <TextBox Grid.Column="1" Name="dimieP"/>
+                        </Grid>
+                        <!-- Nazwisko -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Nazwisko"/>
+                            <TextBox Grid.Column="1" Name="nazwiskoP"/>
+                        </Grid>
+                        <!-- Nazwisko Panieńskie -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Nazwisko panienskie"/>
+                            <TextBox Grid.Column="1" Name="nazwiskopaP"/>
+                        </Grid>
+                        <!-- Imiona Rodzicow -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Imiona Rodzicow"/>
+                            <TextBox Grid.Column="1" Name="imionarodzP"/>
+                        </Grid>
+                        <!-- Data Urodzenia -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Data Urodzenia"/>
+                            <DatePicker Grid.Column="1" Name="dataurP"/>
+                        </Grid>
+                        <!-- Pesel -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Pesel"/>
+                            <TextBox Grid.Column="1" Name="peselP"/>
+                        </Grid>
+                        <!-- Płeć -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Płeć"/>
+                            <ComboBox Grid.Column="1" Name="plecP">
+                                <ComboBoxItem>Mężczyzna</ComboBoxItem>
+                                <ComboBoxItem>Kobieta</ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+                        <!-- Etat -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Etat"/>
+                            <TextBox Grid.Column="1" Name="etatP"/>
+                        </Grid>
+                        <!-- Opis Stanowiska -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Opis Stanowiska"/>
+                            <TextBox Grid.Column="1" Name="stanowiskoP"/>
+                        </Grid>
+                        <!-- Data Zatrudnienia -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Data Zatrudnienia"/>
+                            <DatePicker Grid.Column="1" Name="datazatP"/>
+                        </Grid>
+                        <!-- Zdjecie -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Tu bedzie zdjecie"/>
+                            <Image></Image>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <Label>Tu bedzie kiedys tabela z danymi</Label>
+                        <!-- <DataGrid> !-->
+                    </StackPanel>
+                </Grid>
             </TabItem>
+            <!-- Koniec GUI Pracownika -->
+
+            <!-- Koniec GUI  -->
         </TabControl>
     </Grid>
 </Window>
