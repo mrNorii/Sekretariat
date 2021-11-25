@@ -156,21 +156,26 @@
                         <DataGrid Name="datagridUczen" Height="400">
                             <!-- Wizualka -->
                             <DataGrid.Resources>
-                                
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="Turquoise" />
+                                    <Setter Property="FontWeight" Value="SemiBold" />
+                                    <Setter Property="BorderThickness" Value="0,0,1,2" />
+                                    <Setter Property="BorderBrush" Value="Black" />
+                                </Style>
                             </DataGrid.Resources>
                             
                             <!-- Kolumny i Bindings -->
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Imie" />
-                                <DataGridTextColumn Header="Drugie imie" />
-                                <DataGridTextColumn Header="Nazwisko" />
-                                <DataGridTextColumn Header="Nazwisko Panienskie" />
-                                <DataGridTextColumn Header="Imiona rodzicow" />
-                                <DataGridTextColumn Header="Data Ur." />
-                                <DataGridTextColumn Header="Pesel" />
-                                <DataGridTextColumn Header="Plec" />
-                                <DataGridTextColumn Header="Klasa" />
-                                <DataGridTextColumn Header="Grupa" />
+                                <DataGridTextColumn Header=" Imie" />
+                                <DataGridTextColumn Header=" Drugie imie" />
+                                <DataGridTextColumn Header=" Nazwisko" />
+                                <DataGridTextColumn Header=" Nazwisko Panienskie" />
+                                <DataGridTextColumn Header=" Imiona rodzicow" />
+                                <DataGridTextColumn Header=" Data Ur." />
+                                <DataGridTextColumn Header=" Pesel" />
+                                <DataGridTextColumn Header=" Plec" />
+                                <DataGridTextColumn Header=" Klasa" />
+                                <DataGridTextColumn Header=" Grupa" />
                             </DataGrid.Columns>
                         </DataGrid>
                         <!-- Koniec DataGrid -->

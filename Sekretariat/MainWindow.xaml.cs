@@ -53,6 +53,7 @@ ________________________________________________________________________________
         - Wstepne komentarze co gdzie sie znajduje
         - Lekkie zmiany w menu
         - Poczatek DataGrid'u
+        - Stworzenie klasy uczen
 */
 
 namespace Sekretariat
