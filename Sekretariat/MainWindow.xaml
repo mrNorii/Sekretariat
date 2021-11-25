@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sekretariat"
         mc:Ignorable="d"
-        Title="Sekretariat :/" Height="550" Width="1000">
+        Title="Sekretariat :/" Height="550" Width="1400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -148,7 +148,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Tu bedzie zdjecie"/>
-                            <Button Grid.Column="1">Zatwierdź</Button>
+                            <Button Grid.Column="1" Click="dodajDane">Zatwierdź</Button>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Orientation="Vertical">
@@ -166,16 +166,16 @@
                             
                             <!-- Kolumny i Bindings -->
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header=" Imie" />
-                                <DataGridTextColumn Header=" Drugie imie" />
-                                <DataGridTextColumn Header=" Nazwisko" />
-                                <DataGridTextColumn Header=" Nazwisko Panienskie" />
-                                <DataGridTextColumn Header=" Imiona rodzicow" />
-                                <DataGridTextColumn Header=" Data Ur." />
-                                <DataGridTextColumn Header=" Pesel" />
-                                <DataGridTextColumn Header=" Plec" />
-                                <DataGridTextColumn Header=" Klasa" />
-                                <DataGridTextColumn Header=" Grupa" />
+                                <DataGridTextColumn Header=" Imie" Binding="{Binding uczenImie}"/>
+                                <DataGridTextColumn Header=" Drugie imie" Binding="{Binding uczenDrugieImie}"/>
+                                <DataGridTextColumn Header=" Nazwisko" Binding="{Binding uczenNazwisko}"/>
+                                <DataGridTextColumn Header=" Nazwisko Panienskie" Binding="{Binding uczenNazwiskoPanienskie}"/>
+                                <DataGridTextColumn Header=" Imiona rodzicow" Binding="{Binding uczenImionaRodzicow}"/>
+                                <DataGridTextColumn Header=" Data Ur." Binding="{Binding uczenDataUrodzenia}"/>
+                                <DataGridTextColumn Header=" Pesel" Binding="{Binding uczenPesel}"/>
+                                <DataGridTextColumn Header=" Plec" Binding="{Binding uczenPlec}"/>
+                                <DataGridTextColumn Header=" Klasa" Binding="{Binding uczenKlasa}"/>
+                                <DataGridTextColumn Header=" Grupa" Binding="{Binding uczenGrupa}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <!-- Koniec DataGrid -->

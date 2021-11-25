@@ -65,7 +65,57 @@ namespace Sekretariat
     {
         public MainWindow()
         {
+            
             InitializeComponent();
+
+            //Stworzenia Ucznia i dodanie informacji o nim
+            //https://www.youtube.com/watch?v=dOZYOnFb56Q
+            Uczen KamilSabiron = new Uczen();
+
+            KamilSabiron.uczenImie = "Kamil";
+            KamilSabiron.uczenDrugieImie = "Michal";
+            KamilSabiron.uczenNazwisko = "Sabiron";
+            KamilSabiron.uczenNazwiskoPanienskie = "Jastrzebski";
+            KamilSabiron.uczenImionaRodzicow = "Mariusz Czeslawa";
+            KamilSabiron.uczenDataUrodzenia = "29.09.2003";
+            KamilSabiron.uczenPesel = "12345678997";
+            KamilSabiron.uczenPlec = "Mezczyzna";
+            KamilSabiron.uczenKlasa = "3PR";
+            KamilSabiron.uczenGrupa = "2";
+
+            datagridUczen.Items.Add(KamilSabiron);
+        }
+
+        public class Uczen
+        {
+            public string uczenImie { get; set; }
+            public string uczenDrugieImie { get; set; }
+            public string uczenNazwisko { get; set; }
+            public string uczenNazwiskoPanienskie { get; set; }
+            public string uczenImionaRodzicow { get; set; }
+            public string uczenDataUrodzenia { get; set; }
+            public string uczenPesel { get; set; }
+            public string uczenPlec { get; set; }
+            public string uczenKlasa { get; set; }
+            public string uczenGrupa { get; set; }
+        }
+
+        //Dodawanie danych z formularza do bazy
+        private void dodajDane(object sender, RoutedEventArgs e)
+        {
+            Uczen tempUczen = new Uczen();
+            tempUczen.uczenImie = imieU.Text;
+            tempUczen.uczenDrugieImie = dimieU.Text;
+            tempUczen.uczenNazwisko = nazwiskoU.Text;
+            tempUczen.uczenNazwiskoPanienskie = nazwiskoPanU.Text;
+            tempUczen.uczenImionaRodzicow = imionarodzU.Text;
+            tempUczen.uczenDataUrodzenia = dataurU.Text;
+            tempUczen.uczenPesel = peselU.Text;
+            tempUczen.uczenPlec = plecU.Text;
+            tempUczen.uczenKlasa = klasaU.Text;
+            tempUczen.uczenGrupa = grupaU.Text;
+
+            datagridUczen.Items.Add(tempUczen);
         }
     }
 }
