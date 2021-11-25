@@ -25,10 +25,10 @@
                 <MenuItem Header="Tworzenie"/>
                 <MenuItem Header="Wyszukiwanie"/>
             </MenuItem>
-            
+
         </Menu>
         <!-- Koniec menu -->
-        
+
         <TabControl Grid.Row="1">
             <!-- GUI Uczenia -->
             <TabItem Header="Uczen">
@@ -147,7 +147,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Tu bedzie zdjecie"/>
-                            <Image></Image>
+                            <Button Grid.Column="1">Zatwierdź</Button>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Orientation="Vertical">
@@ -157,7 +157,7 @@
                 </Grid>
             </TabItem>
             <!-- Koniec GUI Ucznia -->
-            
+
             <!-- GUI Nauczyciela -->
             <TabItem Header="Nauczyciel">
                 <Grid>
@@ -278,6 +278,15 @@
                             <Label Content="Data Zatrudnienia"/>
                             <DatePicker Grid.Column="1" Name="datazatrN"/>
                         </Grid>
+                        <!-- Wczytywanie Zdjęcia -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Zdjęcie"/>
+                            <Button Grid.Column="1">Wczytaj Zdjecie</Button>
+                        </Grid>
                         <!-- Zdjecie -->
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -285,7 +294,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Tu bedzie zdjecie"/>
-                            <Image></Image>
+                            <Button Grid.Column="1">Zatwierdź</Button>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Orientation="Vertical">
@@ -300,11 +309,12 @@
             <TabItem Header="Pracownik">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="23*"/>
+                        <ColumnDefinition Width="474*"/>
+                        <ColumnDefinition Width="497*"/>
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0" Orientation="Vertical">
+                    <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="2">
                         <!-- Imie -->
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -407,17 +417,26 @@
                             <Label Content="Data Zatrudnienia"/>
                             <DatePicker Grid.Column="1" Name="datazatP"/>
                         </Grid>
-                        <!-- Zdjecie -->
+                        <!-- Wczytywanie Zdjęcia -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Zdjęcie"/>
+                            <Button Grid.Column="1">Wczytaj Zdjecie</Button>
+                        </Grid>
+                        <!-- Zdjecie + Button zatwierdzenia -->
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Tu bedzie zdjecie"/>
-                            <Image></Image>
+                            <Button Grid.Column="1">Zatwierdź</Button>
                         </Grid>
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <StackPanel Grid.Column="2" Orientation="Vertical">
                         <Label>Tu bedzie kiedys tabela z danymi</Label>
                         <!-- <DataGrid> !-->
                     </StackPanel>
