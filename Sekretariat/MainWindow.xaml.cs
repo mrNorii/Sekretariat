@@ -43,13 +43,15 @@ ________________________________________________________________________________
         24.11.2021
         - Stworzenie TabControl
         - Stworzenie GUI w zakladce uczen
+        - Wstepne menu
         - Stworzenie GUI w zakladce nauczyciel
         
         25.11.2021
-        -Naprawa Kodu bo przy klonowaniu repetytorium usunela GUI ucznia XD?
-        -Stworzenie GUI w zakladce pracownicy
-        -Rename nazw na krotsze (U-uczen, N-nauczyciel, P-pracownik)
-        -Wstepne komentarze co gdzie sie znajduje
+        - Naprawa Kodu bo przy klonowaniu repetytorium usunela GUI ucznia XD?
+        - Stworzenie GUI w zakladce pracownicy
+        - Rename nazw na krotsze (U-uczen, N-nauczyciel, P-pracownik)
+        - Wstepne komentarze co gdzie sie znajduje
+        - Lekkie zmiany w menu
 */
 
 namespace Sekretariat

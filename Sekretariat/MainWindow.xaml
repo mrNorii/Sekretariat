@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sekretariat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="1000">
+        Title="Sekretariat :/" Height="550" Width="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -13,19 +13,20 @@
         </Grid.RowDefinitions>
         <!-- Menu -->
         <Menu>
-            <MenuItem Header="Uczeń">
-                <MenuItem Header="Tworzenie" InputGestureText="Ctrl+F"/>
-                <MenuItem Header="Wyszukiwanie"/>
+            <MenuItem Header="Users">
+                <MenuItem Header="Uczeń">
+                    <MenuItem Header="Tworzenie" InputGestureText="Ctrl+U"/>
+                    <MenuItem Header="Wyszukiwanie" InputGestureText="Ctrl+I"/>
+                </MenuItem>
+                <MenuItem Header="Nauczyciel">
+                    <MenuItem Header="Tworzenie" InputGestureText="Ctrl+N"/>
+                    <MenuItem Header="Wyszukiwanie" InputGestureText="Ctrl+M"/>
+                </MenuItem>
+                <MenuItem Header="Pracownik">
+                    <MenuItem Header="Tworzenie" InputGestureText="Ctrl+P"/>
+                    <MenuItem Header="Wyszukiwanie" InputGestureText="Ctrl+O"/>
+                </MenuItem>
             </MenuItem>
-            <MenuItem Header="Nauczyciel">
-                <MenuItem Header="Tworzenie"/>
-                <MenuItem Header="Wyszukiwanie"/>
-            </MenuItem>
-            <MenuItem Header="Pracownik">
-                <MenuItem Header="Tworzenie"/>
-                <MenuItem Header="Wyszukiwanie"/>
-            </MenuItem>
-
         </Menu>
         <!-- Koniec menu -->
 
@@ -151,8 +152,9 @@
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Orientation="Vertical">
-                        <Label>Tu bedzie kiedys tabela z danymi</Label>
-                        <!-- <DataGrid> !-->
+                        <DataGrid Name="datagridUczen" Height="400">
+                            
+                        </DataGrid>
                     </StackPanel>
                 </Grid>
             </TabItem>
