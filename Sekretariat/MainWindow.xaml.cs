@@ -52,6 +52,7 @@ ________________________________________________________________________________
         - Rename nazw na krotsze (U-uczen, N-nauczyciel, P-pracownik)
         - Wstepne komentarze co gdzie sie znajduje
         - Lekkie zmiany w menu
+        - Poczatek DataGrid'u
 */
 
 namespace Sekretariat
