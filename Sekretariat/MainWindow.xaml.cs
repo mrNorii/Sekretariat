@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 /*
     Zaprojektuj aplikację Sekretariat szkoły
@@ -54,6 +55,12 @@ ________________________________________________________________________________
         - Lekkie zmiany w menu
         - Poczatek DataGrid'u
         - Stworzenie klasy uczen
+        - Sprawdzenie jak dziala dodanie nowego obiektu do bazy
+
+        26.11.2021
+        - Wczytywanie zdjecia (U + N + P).
+        - 
+        
 */
 
 namespace Sekretariat
@@ -116,6 +123,44 @@ namespace Sekretariat
             tempUczen.uczenGrupa = grupaU.Text;
 
             datagridUczen.Items.Add(tempUczen);
+        }
+
+        //Wczytanie Zdjecia Uczen
+        private void wczytajZdjecieU(object sender, RoutedEventArgs e)
+        {
+            tekstZdjecieU.Content = "";
+            
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Uri fileUri = new Uri(openFileDialog.FileName);
+                imgDynamicU.Source = new BitmapImage(fileUri);
+            }
+        }
+
+        //Wczytanie zdjecia Nauczyciel
+        private void wczytajZdjecieN(object sender, RoutedEventArgs e)
+        {
+            tekstZdjecieN.Content = "";
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Uri fileUri = new Uri(openFileDialog.FileName);
+                imgDynamicN.Source = new BitmapImage(fileUri);
+            }
+        }
+
+        private void wczytajZdjecieP(object sender, RoutedEventArgs e)
+        {
+            tekstZdjecieP.Content = "";
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Uri fileUri = new Uri(openFileDialog.FileName);
+                imgDynamicP.Source = new BitmapImage(fileUri);
+            }
         }
     }
 }

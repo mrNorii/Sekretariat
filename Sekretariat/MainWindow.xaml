@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sekretariat"
         mc:Ignorable="d"
-        Title="Sekretariat :/" Height="550" Width="1400">
+        Title="Sekretariat :/" Height="600" Width="1400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -139,7 +139,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Zdjęcie"/>
-                            <Button Grid.Column="1">Wczytaj Zdjecie</Button>
+                            <Button Grid.Column="1" Click="wczytajZdjecieU">Wczytaj Zdjecie</Button>
                         </Grid>
                         <!-- Zdjecie -->
                         <Grid>
@@ -147,7 +147,8 @@
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
-                            <Label Content="Tu bedzie zdjecie"/>
+                            <Label Name="tekstZdjecieU" Content="Tu bedzie zdjecie"/>
+                            <Image Name="imgDynamicU" Margin="10"></Image>
                             <Button Grid.Column="1" Click="dodajDane">Zatwierdź</Button>
                         </Grid>
                     </StackPanel>
@@ -311,7 +312,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Zdjęcie"/>
-                            <Button Grid.Column="1">Wczytaj Zdjecie</Button>
+                            <Button Grid.Column="1" Click="wczytajZdjecieN">Wczytaj Zdjecie</Button>
                         </Grid>
                         <!-- Zdjecie -->
                         <Grid>
@@ -319,7 +320,8 @@
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
-                            <Label Content="Tu bedzie zdjecie"/>
+                            <Label Name="tekstZdjecieN" Content="Tu bedzie zdjecie"/>
+                            <Image Name="imgDynamicN" Margin="10"></Image>
                             <Button Grid.Column="1">Zatwierdź</Button>
                         </Grid>
                     </StackPanel>
@@ -450,7 +452,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Zdjęcie"/>
-                            <Button Grid.Column="1">Wczytaj Zdjecie</Button>
+                            <Button Grid.Column="1" Click="wczytajZdjecieP">Wczytaj Zdjecie</Button>
                         </Grid>
                         <!-- Zdjecie + Button zatwierdzenia -->
                         <Grid>
@@ -458,7 +460,8 @@
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
-                            <Label Content="Tu bedzie zdjecie"/>
+                            <Label Name="tekstZdjecieP" Content="Tu bedzie zdjecie"/>
+                            <Image Name="imgDynamicP" Margin="10"></Image>
                             <Button Grid.Column="1">Zatwierdź</Button>
                         </Grid>
                     </StackPanel>
