@@ -141,19 +141,25 @@
                             <Label Content="Zdjęcie"/>
                             <Button Grid.Column="1" Click="wczytajZdjecieU">Wczytaj Zdjecie</Button>
                         </Grid>
+                        <!-- buttony -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="1" Click="dodajDane">Zatwierdź</Button>
+                            <Button Grid.Column="0" Click="zaladujBazeU">Załaduj Bazę</Button>
+                        </Grid>
                         <!-- Zdjecie -->
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
-                            <Label Name="tekstZdjecieU" Content="Tu bedzie zdjecie"/>
                             <Image Name="imgDynamicU" Margin="10"></Image>
-                            <Button Grid.Column="1" Click="dodajDane">Zatwierdź</Button>
                         </Grid>
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Orientation="Vertical">
-                        <!-- DataGrid -->
+                    <StackPanel Grid.Column="1" Orientation="Vertical">                        <!-- DataGrid -->
                         <DataGrid Name="datagridUczen" Height="400">
                             <!-- Wizualka -->
                             <DataGrid.Resources>
@@ -164,7 +170,7 @@
                                     <Setter Property="BorderBrush" Value="Black" />
                                 </Style>
                             </DataGrid.Resources>
-                            
+
                             <!-- Kolumny i Bindings -->
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header=" Imie" Binding="{Binding uczenImie}"/>
@@ -472,6 +478,13 @@
                 </Grid>
             </TabItem>
             <!-- Koniec GUI Pracownika -->
+
+            <TabItem Header="ShortCuts">
+                <Grid>
+                    <!-- <Button Height="40" Margin="267,243,968,253" Name="AddShortCut" Click="SetShortCut">ADD SHORTCUT</Button>
+                    <TextBox Height="40" Margin="514,243,758,253" Name="viewShortCut"/> -->
+                </Grid>
+            </TabItem>
 
             <!-- Koniec GUI  -->
         </TabControl>

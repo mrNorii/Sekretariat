@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,9 +59,16 @@ ________________________________________________________________________________
         - Stworzenie klasy uczen
         - Sprawdzenie jak dziala dodanie nowego obiektu do bazy
 
-        26.11.2021
+        02.12.2021
         - Wczytywanie zdjecia (U + N + P).
-        - 
+        - Przygotowanie do skrotow edytowalnych
+
+        06.12.2021
+        - Stworzenie osobnego pliku dla klasy uczen
+        - Stworzenie przycisku ktory zaladuje baze danych dla uczniow 
+        - Tworzenie pliku CSV w celu sprawdzenia czy wczytanie bazy danych dziala
+        - Efekt - System.IndexOutOfRangeException: „Index was outside the bounds of the array.”
+
         
 */
 
@@ -74,6 +83,7 @@ namespace Sekretariat
         {
             
             InitializeComponent();
+
 
             //Stworzenia Ucznia i dodanie informacji o nim
             //https://www.youtube.com/watch?v=dOZYOnFb56Q
@@ -93,20 +103,6 @@ namespace Sekretariat
             datagridUczen.Items.Add(KamilSabiron);
         }
 
-        public class Uczen
-        {
-            public string uczenImie { get; set; }
-            public string uczenDrugieImie { get; set; }
-            public string uczenNazwisko { get; set; }
-            public string uczenNazwiskoPanienskie { get; set; }
-            public string uczenImionaRodzicow { get; set; }
-            public string uczenDataUrodzenia { get; set; }
-            public string uczenPesel { get; set; }
-            public string uczenPlec { get; set; }
-            public string uczenKlasa { get; set; }
-            public string uczenGrupa { get; set; }
-        }
-
         //Dodawanie danych z formularza do bazy
         private void dodajDane(object sender, RoutedEventArgs e)
         {
@@ -123,13 +119,12 @@ namespace Sekretariat
             tempUczen.uczenGrupa = grupaU.Text;
 
             datagridUczen.Items.Add(tempUczen);
+
         }
 
         //Wczytanie Zdjecia Uczen
         private void wczytajZdjecieU(object sender, RoutedEventArgs e)
-        {
-            tekstZdjecieU.Content = "";
-            
+        {         
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
@@ -151,6 +146,7 @@ namespace Sekretariat
             }
         }
 
+        //Wczytanie zdjecia Pracownika
         private void wczytajZdjecieP(object sender, RoutedEventArgs e)
         {
             tekstZdjecieP.Content = "";
@@ -160,6 +156,39 @@ namespace Sekretariat
             {
                 Uri fileUri = new Uri(openFileDialog.FileName);
                 imgDynamicP.Source = new BitmapImage(fileUri);
+            }
+        }
+
+        //Załadowanie Bazy Ucznia z pliku CSV (Excel) 
+        private void zaladujBazeU(object sender, RoutedEventArgs e)
+        {
+            //https://www.youtube.com/watch?v=aIsMwEAiOKs
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.ShowDialog();
+
+            Uczen StudentInfo = new Uczen();
+            string[] StudentArray;
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("uczenImie", typeof(string));
+            dt.Columns.Add("uczenDrugieImie", typeof(string));
+            dt.Columns.Add("uczenNazwisko", typeof(string));
+
+            using (StreamReader sr = new StreamReader(ofd.FileName))
+            {
+                while (!sr.EndOfStream)
+                {
+                    StudentArray = sr.ReadLine().Split(";");
+
+                    StudentInfo.uczenImie = StudentArray[0];
+                    StudentInfo.uczenDrugieImie = StudentArray[1];
+                    StudentInfo.uczenNazwisko = StudentArray[2];
+
+                    dt.Rows.Add(StudentArray);
+                }
+                DataView dv = new DataView(dt);
+                datagridUczen.ItemsSource = dv;
             }
         }
     }
