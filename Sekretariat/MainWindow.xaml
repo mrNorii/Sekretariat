@@ -147,7 +147,7 @@
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="1" Click="dodajDane">Zatwierdź</Button>
+                            <Button Grid.Column="1" Click="dodajDaneU">Dodaj Dane</Button>
                             <Button Grid.Column="0" Click="zaladujBazeU">Załaduj Bazę</Button>
                         </Grid>
                         <!-- Zdjecie -->
@@ -156,10 +156,12 @@
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Name="imgDynamicU" Margin="10"></Image>
+                            <Image Grid.Column="0" Name="imgDynamicU" Margin="10"></Image>
+                            <Button Grid.Column="1" Name="bazaZapisz" Click="bazaZapiszU">Zapisz Bazę</Button>
                         </Grid>
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Orientation="Vertical">                        <!-- DataGrid -->
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <!-- DataGrid -->
                         <DataGrid Name="datagridUczen" Height="400">
                             <!-- Wizualka -->
                             <DataGrid.Resources>
@@ -195,11 +197,12 @@
             <TabItem Header="Nauczyciel">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="28*"/>
+                        <ColumnDefinition Width="669*"/>
+                        <ColumnDefinition Width="697*"/>
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0" Orientation="Vertical">
+                    <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="2">
                         <!-- Imie -->
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -320,20 +323,55 @@
                             <Label Content="Zdjęcie"/>
                             <Button Grid.Column="1" Click="wczytajZdjecieN">Wczytaj Zdjecie</Button>
                         </Grid>
+                        <!-- buttony -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="1" Click="dodajDaneN">Dodaj Dane</Button>
+                            <Button Grid.Column="0" Click="zaladujBazeN">Załaduj Bazę</Button>
+                        </Grid>
                         <!-- Zdjecie -->
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
-                            <Label Name="tekstZdjecieN" Content="Tu bedzie zdjecie"/>
-                            <Image Name="imgDynamicN" Margin="10"></Image>
-                            <Button Grid.Column="1">Zatwierdź</Button>
+                            <Image Grid.Column="0" Name="imgDynamicN" Margin="10"></Image>
+                            <Button Grid.Column="1" Name="bazaZapiszNN" Click="bazaZapiszN">Zapisz Bazę</Button>
                         </Grid>
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Orientation="Vertical">
-                        <Label>Tu bedzie kiedys tabela z danymi</Label>
-                        <!-- <DataGrid> !-->
+                    <StackPanel Grid.Column="2" Orientation="Vertical">
+                        <!-- DataGrid -->
+                        <DataGrid Name="datagridNauczyciel" Height="400">
+                            <!-- Wizualka -->
+                            <DataGrid.Resources>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="Turquoise" />
+                                    <Setter Property="FontWeight" Value="SemiBold" />
+                                    <Setter Property="BorderThickness" Value="0,0,1,2" />
+                                    <Setter Property="BorderBrush" Value="Black" />
+                                </Style>
+                            </DataGrid.Resources>
+
+                            <!-- Kolumny i Bindings -->
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header=" Imie" Binding="{Binding nauczycielImie}"/>
+                                <DataGridTextColumn Header=" Drugie imie" Binding="{Binding nauczycielDrugieImie}"/>
+                                <DataGridTextColumn Header=" Nazwisko" Binding="{Binding nauczycielNazwisko}"/>
+                                <DataGridTextColumn Header=" Nazwisko Panienskie" Binding="{Binding nauczycielNazwiskoPanienskie}"/>
+                                <DataGridTextColumn Header=" Imiona rodzicow" Binding="{Binding nauczycielImionaRodzicow}"/>
+                                <DataGridTextColumn Header=" Data Ur." Binding="{Binding nauczycielDataUrodzenia}"/>
+                                <DataGridTextColumn Header=" Pesel" Binding="{Binding nauczycielPesel}"/>
+                                <DataGridTextColumn Header=" Plec" Binding="{Binding nauczycielPlec}"/>
+                                <DataGridTextColumn Header=" Wychowawstwo" Binding="{Binding nauczycielWychowawstwo}"/>
+                                <DataGridTextColumn Header=" Przedmioty Nauczania" Binding="{Binding nauczycielPrzedmiotyNauczania}"/>
+                                <DataGridTextColumn Header=" Przedmioty Nauczania" Binding="{Binding nauczycielKlasyNauczania}"/>
+                                <DataGridTextColumn Header=" Przedmioty Nauczania" Binding="{Binding nauczycielDataZatr}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <!-- Koniec DataGrid -->
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -460,20 +498,54 @@
                             <Label Content="Zdjęcie"/>
                             <Button Grid.Column="1" Click="wczytajZdjecieP">Wczytaj Zdjecie</Button>
                         </Grid>
-                        <!-- Zdjecie + Button zatwierdzenia -->
+                        <!-- buttony -->
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
-                            <Label Name="tekstZdjecieP" Content="Tu bedzie zdjecie"/>
-                            <Image Name="imgDynamicP" Margin="10"></Image>
-                            <Button Grid.Column="1">Zatwierdź</Button>
+                            <Button Grid.Column="1" Click="dodajDaneP">Dodaj Dane</Button>
+                            <Button Grid.Column="0" Click="zaladujBazeP">Załaduj Bazę</Button>
+                        </Grid>
+                        <!-- Zdjecie -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Name="imgDynamicP" Margin="10"></Image>
+                            <Button Grid.Column="1" Name="bazaZapiszPP" Click="bazaZapiszP">Zapisz Bazę</Button>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Column="2" Orientation="Vertical">
-                        <Label>Tu bedzie kiedys tabela z danymi</Label>
-                        <!-- <DataGrid> !-->
+                        <!-- DataGrid -->
+                        <DataGrid Name="datagridPracownik" Height="400">
+                            <!-- Wizualka -->
+                            <DataGrid.Resources>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="Turquoise" />
+                                    <Setter Property="FontWeight" Value="SemiBold" />
+                                    <Setter Property="BorderThickness" Value="0,0,1,2" />
+                                    <Setter Property="BorderBrush" Value="Black" />
+                                </Style>
+                            </DataGrid.Resources>
+
+                            <!-- Kolumny i Bindings -->
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header=" Imie" Binding="{Binding pracownikImie}"/>
+                                <DataGridTextColumn Header=" Drugie imie" Binding="{Binding pracownikDrugieImie}"/>
+                                <DataGridTextColumn Header=" Nazwisko" Binding="{Binding pracownikNazwisko}"/>
+                                <DataGridTextColumn Header=" Nazwisko Panienskie" Binding="{Binding pracownikNazwiskoPanienskie}"/>
+                                <DataGridTextColumn Header=" Imiona rodzicow" Binding="{Binding pracownikImionaRodzicow}"/>
+                                <DataGridTextColumn Header=" Data Ur." Binding="{Binding pracownikDataUrodzenia}"/>
+                                <DataGridTextColumn Header=" Pesel" Binding="{Binding pracownikPesel}"/>
+                                <DataGridTextColumn Header=" Plec" Binding="{Binding pracownikPlec}"/>
+                                <DataGridTextColumn Header=" Etat" Binding="{Binding pracownikEtat}"/>
+                                <DataGridTextColumn Header=" Stanowisko" Binding="{Binding pracownikStanowisko}"/>
+                                <DataGridTextColumn Header=" Data Zatrudnienia" Binding="{Binding pracownikDataZatrudnienia}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <!-- Koniec DataGrid -->
                     </StackPanel>
                 </Grid>
             </TabItem>

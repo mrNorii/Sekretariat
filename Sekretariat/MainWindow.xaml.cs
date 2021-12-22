@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CsvHelper;
 using Microsoft.Win32;
 
 /*
@@ -69,6 +70,10 @@ ________________________________________________________________________________
         - Tworzenie pliku CSV w celu sprawdzenia czy wczytanie bazy danych dziala
         - Efekt - System.IndexOutOfRangeException: „Index was outside the bounds of the array.”
 
+        22.12.2021
+        - Pracownik + Nauczyciel DataGrid
+        - Aktualizacja przyciskow Pracownik + Nauczyciel
+
         
 */
 
@@ -92,7 +97,7 @@ namespace Sekretariat
             KamilSabiron.uczenImie = "Kamil";
             KamilSabiron.uczenDrugieImie = "Michal";
             KamilSabiron.uczenNazwisko = "Sabiron";
-            KamilSabiron.uczenNazwiskoPanienskie = "Jastrzebski";
+            KamilSabiron.uczenNazwiskoPanienskie = "-";
             KamilSabiron.uczenImionaRodzicow = "Mariusz Czeslawa";
             KamilSabiron.uczenDataUrodzenia = "29.09.2003";
             KamilSabiron.uczenPesel = "12345678997";
@@ -103,8 +108,9 @@ namespace Sekretariat
             datagridUczen.Items.Add(KamilSabiron);
         }
 
+        //------------------UCZEN----------------------
         //Dodawanie danych z formularza do bazy
-        private void dodajDane(object sender, RoutedEventArgs e)
+        private void dodajDaneU(object sender, RoutedEventArgs e)
         {
             Uczen tempUczen = new Uczen();
             tempUczen.uczenImie = imieU.Text;
@@ -130,32 +136,6 @@ namespace Sekretariat
             {
                 Uri fileUri = new Uri(openFileDialog.FileName);
                 imgDynamicU.Source = new BitmapImage(fileUri);
-            }
-        }
-
-        //Wczytanie zdjecia Nauczyciel
-        private void wczytajZdjecieN(object sender, RoutedEventArgs e)
-        {
-            tekstZdjecieN.Content = "";
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
-            {
-                Uri fileUri = new Uri(openFileDialog.FileName);
-                imgDynamicN.Source = new BitmapImage(fileUri);
-            }
-        }
-
-        //Wczytanie zdjecia Pracownika
-        private void wczytajZdjecieP(object sender, RoutedEventArgs e)
-        {
-            tekstZdjecieP.Content = "";
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
-            {
-                Uri fileUri = new Uri(openFileDialog.FileName);
-                imgDynamicP.Source = new BitmapImage(fileUri);
             }
         }
 
@@ -191,5 +171,105 @@ namespace Sekretariat
                 datagridUczen.ItemsSource = dv;
             }
         }
+
+        private void bazaZapiszU(object sender, RoutedEventArgs e)
+        {
+            //proby jakies
+            DataTable dt = (DataTable)datagridUczen.ItemsSource;
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "CSV|*.csv";
+            sfd.ShowDialog();
+            sfd.ValidateNames = true;
+            sfd.CheckFileExists = true;
+            sfd.CheckPathExists = true;
+            dt.WriteXml(sfd.FileName);
+
+        }
+        //------------------KONIEC UCZEN----------------------
+
+        //------------------NAUCZYCIEL----------------------
+        private void bazaZapiszN(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        
+        //Wczytanie zdjecia Nauczyciel
+        private void wczytajZdjecieN(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Uri fileUri = new Uri(openFileDialog.FileName);
+                imgDynamicN.Source = new BitmapImage(fileUri);
+            }
+        }
+        private void zaladujBazeN(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //Dodawanie danych z formularza do bazy
+        private void dodajDaneN(object sender, RoutedEventArgs e)
+        {
+            nauczyciel tempNauczyciel = new nauczyciel();
+            tempNauczyciel.nauczycielImie = imieN.Text;
+            tempNauczyciel.nauczycielDrugieImie = dimieN.Text;
+            tempNauczyciel.nauczycielNazwisko = nazwiskoN.Text;
+            tempNauczyciel.nauczycielNazwiskoPanienskie = nazwiskoPanN.Text;
+            tempNauczyciel.nauczycielImionaRodzicow = imionarodzN.Text;
+            tempNauczyciel.nauczycielDataUrodzenia = dataurN.Text;
+            tempNauczyciel.nauczycielPesel = peselN.Text;
+            tempNauczyciel.nauczycielPlec = plecN.Text;
+            tempNauczyciel.nauczycielWychowawstwo = wychowawstwoN.Text;
+            tempNauczyciel.nauczycielPrzedmiotyNauczania = przedmiotynauczaniaN.Text;
+            tempNauczyciel.nauczycielKlasyNauczania = klasagodzinyN.Text;
+            tempNauczyciel.nauczycielDataZatr = datazatrN.Text;
+
+            datagridNauczyciel.Items.Add(tempNauczyciel);
+        }
+        //-----------------KONIEC NAUCZYCIEL----------------------
+
+        //------------------PRACOWNIK----------------------
+        //Dodawanie danych z formularza do bazy
+        private void dodajDaneP(object sender, RoutedEventArgs e)
+        {
+            Pracownik tempPracownik = new Pracownik();
+            tempPracownik.pracownikImie = imieP.Text;
+            tempPracownik.pracownikDrugieImie = dimieP.Text;
+            tempPracownik.pracownikNazwisko = nazwiskoP.Text;
+            tempPracownik.pracownikNazwiskoPanienskie = nazwiskopaP.Text;
+            tempPracownik.pracownikImionaRodzicow = imionarodzP.Text;
+            tempPracownik.pracownikDataUrodzenia = dataurP.Text;
+            tempPracownik.pracownikPesel = peselP.Text;
+            tempPracownik.pracownikPlec = plecP.Text;
+            tempPracownik.pracownikEtat = etatP.Text;
+            tempPracownik.pracownikStanowisko = stanowiskoP.Text;
+            tempPracownik.pracownikDataZatrudnienia = datazatP.Text;
+            
+
+            datagridPracownik.Items.Add(tempPracownik);
+        }
+
+        private void zaladujBazeP(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //Wczytanie zdjecia Pracownika
+        private void wczytajZdjecieP(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Uri fileUri = new Uri(openFileDialog.FileName);
+                imgDynamicP.Source = new BitmapImage(fileUri);
+            }
+        }
+
+        private void bazaZapiszP(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //-----------------KONIEC PRACOWNIK----------------------
     }
 }
