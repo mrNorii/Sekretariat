@@ -15,21 +15,19 @@
         <Menu>
             <MenuItem Header="Users">
                 <MenuItem Header="Uczeń">
-                    <MenuItem Header="Tworzenie" InputGestureText="Ctrl+U"/>
-                    <MenuItem Header="Wyszukiwanie" InputGestureText="Ctrl+I"/>
+                    <MenuItem Header="Przejdz do Ucznia" InputGestureText="Ctrl+U" Click="menuClickU"/>
                 </MenuItem>
                 <MenuItem Header="Nauczyciel">
-                    <MenuItem Header="Tworzenie" InputGestureText="Ctrl+N"/>
-                    <MenuItem Header="Wyszukiwanie" InputGestureText="Ctrl+M"/>
+                    <MenuItem Header="Przejdz do Nauczyciel" InputGestureText="Ctrl+N" Click="menuClickN"/>
                 </MenuItem>
                 <MenuItem Header="Pracownik">
-                    <MenuItem Header="Tworzenie" InputGestureText="Ctrl+P"/>
-                    <MenuItem Header="Wyszukiwanie" InputGestureText="Ctrl+O"/>
+                    <MenuItem Header="Przejdz do Pracownik" InputGestureText="Ctrl+P" Click="menuClickP"/>
                 </MenuItem>
             </MenuItem>
         </Menu>
         <!-- Koniec menu -->
 
+        <!-- FORMULARZ I BAZA  -->
         <TabControl Grid.Row="1">
             <!-- GUI Uczenia -->
             <TabItem Header="Uczen">
@@ -553,8 +551,7 @@
 
             <TabItem Header="ShortCuts">
                 <Grid>
-                    <!-- <Button Height="40" Margin="267,243,968,253" Name="AddShortCut" Click="SetShortCut">ADD SHORTCUT</Button>
-                    <TextBox Height="40" Margin="514,243,758,253" Name="viewShortCut"/> -->
+                    
                 </Grid>
             </TabItem>
 

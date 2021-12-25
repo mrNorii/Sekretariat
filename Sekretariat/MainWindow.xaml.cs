@@ -23,11 +23,11 @@ using Microsoft.Win32;
     1. Przeznaczenie:
     Aplikacja ma umożliwiać wprowadzanie danych uczniów, nauczycieli i pracowników obsługi. 
 
-    Informacje o uczniu muszą zawierać: imię, drugie imię, nazwisko, nazwisko panieńskie, imiona rodziców, datę urodzenia, pesel, zdjęcie, płeć, 
+    *Informacje o uczniu muszą zawierać: imię, drugie imię, nazwisko, nazwisko panieńskie, imiona rodziców, datę urodzenia, pesel, zdjęcie, płeć, 
         przynależność do klasy, przynależność do grup (np. językowych) – również międzyklasowych
-    Informacje o nauczycielu muszą zawierać: imię, drugie imię(jeśli jest), nazwisko, nazwisko panieńskie, imiona rodziców, datę urodzenia, pesel, zdjęcie, 
+    *Informacje o nauczycielu muszą zawierać: imię, drugie imię(jeśli jest), nazwisko, nazwisko panieńskie, imiona rodziców, datę urodzenia, pesel, zdjęcie, 
         płeć, wychowawstwo (jeśli jest), przedmioty nauczane, klasy w których uczy z godzinami, data zatrudnienia
-    Informacje o pracownikach obsługi muszą zawierać: imię, drugie imię, nazwisko, nazwisko panieńskie, imiona rodziców, datę urodzenia, pesel, zdjęcie, 
+    *Informacje o pracownikach obsługi muszą zawierać: imię, drugie imię, nazwisko, nazwisko panieńskie, imiona rodziców, datę urodzenia, pesel, zdjęcie, 
         płeć, informacje o etacie (cały, pół etatu itp.), opis stanowiska, data zatrudnienia
     
     2. Wymagane funkcjonalności:
@@ -74,6 +74,10 @@ ________________________________________________________________________________
         - Pracownik + Nauczyciel DataGrid
         - Aktualizacja przyciskow Pracownik + Nauczyciel
 
+        25.12.2021
+        - Dalsze walki z ladowaniem bazy z pliku
+        - Dodanie Komentarzy i uporzadkowanie kodu
+
         
 */
 
@@ -91,7 +95,6 @@ namespace Sekretariat
 
 
             //Stworzenia Ucznia i dodanie informacji o nim
-            //https://www.youtube.com/watch?v=dOZYOnFb56Q
             Uczen KamilSabiron = new Uczen();
 
             KamilSabiron.uczenImie = "Kamil";
@@ -125,7 +128,6 @@ namespace Sekretariat
             tempUczen.uczenGrupa = grupaU.Text;
 
             datagridUczen.Items.Add(tempUczen);
-
         }
 
         //Wczytanie Zdjecia Uczen
@@ -143,7 +145,6 @@ namespace Sekretariat
         private void zaladujBazeU(object sender, RoutedEventArgs e)
         {
             //https://www.youtube.com/watch?v=aIsMwEAiOKs
-
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.ShowDialog();
 
@@ -154,6 +155,13 @@ namespace Sekretariat
             dt.Columns.Add("uczenImie", typeof(string));
             dt.Columns.Add("uczenDrugieImie", typeof(string));
             dt.Columns.Add("uczenNazwisko", typeof(string));
+            dt.Columns.Add("uczenNazwiskoPanienskie", typeof(string));
+            dt.Columns.Add("uczenImionaRodzicow", typeof(string));
+            dt.Columns.Add("uczenDataUrodzenia", typeof(string));
+            dt.Columns.Add("uczenPesel", typeof(string));
+            dt.Columns.Add("uczenPlec", typeof(string));
+            dt.Columns.Add("uczenKlasa", typeof(string));
+            dt.Columns.Add("uczenGrupa", typeof(string));
 
             using (StreamReader sr = new StreamReader(ofd.FileName))
             {
@@ -164,6 +172,13 @@ namespace Sekretariat
                     StudentInfo.uczenImie = StudentArray[0];
                     StudentInfo.uczenDrugieImie = StudentArray[1];
                     StudentInfo.uczenNazwisko = StudentArray[2];
+                    StudentInfo.uczenNazwiskoPanienskie = StudentArray[3];
+                    StudentInfo.uczenImionaRodzicow = StudentArray[4];
+                    StudentInfo.uczenDataUrodzenia = StudentArray[5];
+                    StudentInfo.uczenPesel = StudentArray[6];
+                    StudentInfo.uczenPlec = StudentArray[7];
+                    StudentInfo.uczenKlasa = StudentArray[8];
+                    StudentInfo.uczenGrupa = StudentArray[9];
 
                     dt.Rows.Add(StudentArray);
                 }
@@ -172,6 +187,7 @@ namespace Sekretariat
             }
         }
 
+        //Zapisanie bazy Uczen do pliku CSV (EXCEL)
         private void bazaZapiszU(object sender, RoutedEventArgs e)
         {
             //proby jakies
@@ -188,26 +204,7 @@ namespace Sekretariat
         //------------------KONIEC UCZEN----------------------
 
         //------------------NAUCZYCIEL----------------------
-        private void bazaZapiszN(object sender, RoutedEventArgs e)
-        {
-            
-        }
         
-        //Wczytanie zdjecia Nauczyciel
-        private void wczytajZdjecieN(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
-            {
-                Uri fileUri = new Uri(openFileDialog.FileName);
-                imgDynamicN.Source = new BitmapImage(fileUri);
-            }
-        }
-        private void zaladujBazeN(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         //Dodawanie danych z formularza do bazy
         private void dodajDaneN(object sender, RoutedEventArgs e)
         {
@@ -226,6 +223,29 @@ namespace Sekretariat
             tempNauczyciel.nauczycielDataZatr = datazatrN.Text;
 
             datagridNauczyciel.Items.Add(tempNauczyciel);
+        }
+
+        //Wczytanie zdjecia Nauczyciel
+        private void wczytajZdjecieN(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Uri fileUri = new Uri(openFileDialog.FileName);
+                imgDynamicN.Source = new BitmapImage(fileUri);
+            }
+        }
+
+        //Załadowanie Bazy Nauczyciel z pliku CSV (Excel) 
+        private void zaladujBazeN(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //Zapisanie bazy Nauczyciel do pliku CSV (EXCEL)
+        private void bazaZapiszN(object sender, RoutedEventArgs e)
+        {
+
         }
         //-----------------KONIEC NAUCZYCIEL----------------------
 
@@ -250,11 +270,6 @@ namespace Sekretariat
             datagridPracownik.Items.Add(tempPracownik);
         }
 
-        private void zaladujBazeP(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         //Wczytanie zdjecia Pracownika
         private void wczytajZdjecieP(object sender, RoutedEventArgs e)
         {
@@ -266,10 +281,34 @@ namespace Sekretariat
             }
         }
 
+        //Załadowanie Bazy Pracownik z pliku CSV (Excel) 
+        private void zaladujBazeP(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //Zapisanie bazy Pracownik do pliku CSV (EXCEL)
         private void bazaZapiszP(object sender, RoutedEventArgs e)
         {
 
         }
+        
         //-----------------KONIEC PRACOWNIK----------------------
+
+        //------------------------MENU---------------------------
+        private void menuClickU(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("New");
+        }
+
+        private void menuClickN(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void menuClickP(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
