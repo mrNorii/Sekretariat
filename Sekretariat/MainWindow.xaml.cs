@@ -78,7 +78,10 @@ ________________________________________________________________________________
         - Dalsze walki z ladowaniem bazy z pliku
         - Dodanie Komentarzy i uporzadkowanie kodu
 
-        
+        28.12.2021
+        - Dalsze proby z zaladowaniem bazy
+        - Sortowanie proby
+
 */
 
 namespace Sekretariat
@@ -144,7 +147,7 @@ namespace Sekretariat
         //Załadowanie Bazy Ucznia z pliku CSV (Excel) 
         private void zaladujBazeU(object sender, RoutedEventArgs e)
         {
-            //https://www.youtube.com/watch?v=aIsMwEAiOKs
+            /*//https://www.youtube.com/watch?v=aIsMwEAiOKs
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.ShowDialog();
 
@@ -184,8 +187,39 @@ namespace Sekretariat
                 }
                 DataView dv = new DataView(dt);
                 datagridUczen.ItemsSource = dv;
+            }*/
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.DefaultExt = ".csv";
+            ofd.Filter = "CSV|*.csv";
+
+            if(ofd.ShowDialog()==true)
+            {
+                var filename = ofd.FileName;
+                var lines = File.ReadAllLines(filename);
+                var list = new List<Uczen>();
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    var line = lines[i].Split(',');
+                    var uczen = new Uczen()
+                    {
+                        uczenImie = line[0],
+                        uczenDrugieImie = line[1],
+                        uczenNazwisko = line[2],
+                        uczenNazwiskoPanienskie = line[3],
+                        uczenImionaRodzicow = line[4],
+                        uczenDataUrodzenia = line[5],
+                        uczenPesel = line[6],
+                        uczenPlec = line[7],
+                        uczenKlasa = line[8],
+                        uczenGrupa = line[9]
+                    };
+                    list.Add(uczen);
+                    datagridUczen.Items.Add(list);
+                }
             }
         }
+        
 
         //Zapisanie bazy Uczen do pliku CSV (EXCEL)
         private void bazaZapiszU(object sender, RoutedEventArgs e)
@@ -239,7 +273,37 @@ namespace Sekretariat
         //Załadowanie Bazy Nauczyciel z pliku CSV (Excel) 
         private void zaladujBazeN(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.DefaultExt = ".csv";
+            ofd.Filter = "CSV|*.csv";
 
+            if (ofd.ShowDialog() == true)
+            {
+                var filename = ofd.FileName;
+                var lines = File.ReadAllLines(filename);
+                var list = new List<nauczyciel>();
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    var line = lines[i].Split(',');
+                    var nauczyciel = new nauczyciel()
+                    {
+                        nauczycielImie = line[0],
+                        nauczycielDrugieImie = line[1],
+                        nauczycielNazwisko = line[2],
+                        nauczycielNazwiskoPanienskie = line[3],
+                        nauczycielImionaRodzicow = line[4],
+                        nauczycielDataUrodzenia = line[5],
+                        nauczycielPesel = line[6],
+                        nauczycielPlec = line[7],
+                        nauczycielWychowawstwo = line[8],
+                        nauczycielPrzedmiotyNauczania = line[9],
+                        nauczycielKlasyNauczania = line[10],
+                        nauczycielDataZatr = line[11]
+                    };
+                    list.Add(nauczyciel);
+                    datagridUczen.Items.Add(list);
+                }
+            }
         }
 
         //Zapisanie bazy Nauczyciel do pliku CSV (EXCEL)
@@ -284,7 +348,36 @@ namespace Sekretariat
         //Załadowanie Bazy Pracownik z pliku CSV (Excel) 
         private void zaladujBazeP(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.DefaultExt = ".csv";
+            ofd.Filter = "CSV|*.csv";
 
+            if (ofd.ShowDialog() == true)
+            {
+                var filename = ofd.FileName;
+                var lines = File.ReadAllLines(filename);
+                var list = new List<Pracownik>();
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    var line = lines[i].Split(',');
+                    var pracownik = new Pracownik()
+                    {
+                        pracownikImie = line[0],
+                        pracownikDrugieImie = line[1],
+                        pracownikNazwisko = line[2],
+                        pracownikNazwiskoPanienskie = line[3],
+                        pracownikImionaRodzicow = line[4],
+                        pracownikDataUrodzenia = line[5],
+                        pracownikPesel = line[6],
+                        pracownikPlec = line[7],
+                        pracownikEtat = line[8],
+                        pracownikStanowisko = line[9],
+                        pracownikDataZatrudnienia = line[10]
+                    };
+                    list.Add(pracownik);
+                    datagridUczen.Items.Add(list);
+                }
+            }
         }
 
         //Zapisanie bazy Pracownik do pliku CSV (EXCEL)
@@ -309,6 +402,16 @@ namespace Sekretariat
         private void menuClickP(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void grupujU(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           
         }
     }
 }

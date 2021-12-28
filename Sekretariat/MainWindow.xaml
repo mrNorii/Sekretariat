@@ -24,6 +24,9 @@
                     <MenuItem Header="Przejdz do Pracownik" InputGestureText="Ctrl+P" Click="menuClickP"/>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Sorting">
+                <MenuItem Header="Grupuj" Click="grupujU"/>
+            </MenuItem>
         </Menu>
         <!-- Koniec menu -->
 
@@ -159,6 +162,14 @@
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0">Wyszukaj po imieniu</Label>
+                            <TextBox Grid.Column="1" TextChanged="TextBox_TextChanged" />
+                        </Grid>
                         <!-- DataGrid -->
                         <DataGrid Name="datagridUczen" Height="400">
                             <!-- Wizualka -->
