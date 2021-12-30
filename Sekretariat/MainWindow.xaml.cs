@@ -82,6 +82,12 @@ ________________________________________________________________________________
         - Dalsze proby z zaladowaniem bazy
         - Sortowanie proby
 
+        29.12.2021
+        - mierne proby zapisu bazy do pliku
+    
+        30.12.2021
+        - Filtrowanie za pomoca imienia, proby 
+
 */
 
 namespace Sekretariat
@@ -225,15 +231,15 @@ namespace Sekretariat
         private void bazaZapiszU(object sender, RoutedEventArgs e)
         {
             //proby jakies
-            DataTable dt = (DataTable)datagridUczen.ItemsSource;
+            /*DataTable dt = (DataTable)datagridUczen.ItemsSource;
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "CSV|*.csv";
             sfd.ShowDialog();
             sfd.ValidateNames = true;
             sfd.CheckFileExists = true;
             sfd.CheckPathExists = true;
-            dt.WriteXml(sfd.FileName);
-
+            dt.WriteXml(sfd.FileName);*/
+            
         }
         //------------------KONIEC UCZEN----------------------
 
@@ -391,17 +397,17 @@ namespace Sekretariat
         //------------------------MENU---------------------------
         private void menuClickU(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("New");
+            tabUczen.IsSelected = true;
         }
 
         private void menuClickN(object sender, RoutedEventArgs e)
         {
-
+            tabNauczyciel.IsSelected = true;
         }
 
         private void menuClickP(object sender, RoutedEventArgs e)
         {
-
+            tabPracownik.IsSelected = true;
         }
 
         private void grupujU(object sender, RoutedEventArgs e)
@@ -411,7 +417,12 @@ namespace Sekretariat
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-           
+            string tempString = searchUcz.Text.ToLower().ToString();
+            List<Uczen> uczniowie = new List<Uczen>();
+            var zfiltrowanie = uczniowie.Where(x => x.uczenImie.ToLower().Contains(tempString));
+            datagridUczen.ItemsSource = null;
+            datagridUczen.ItemsSource = zfiltrowanie;
+            datagridUczen.Items.Refresh();
         }
     }
 }

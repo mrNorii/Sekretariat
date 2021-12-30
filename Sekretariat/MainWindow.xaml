@@ -33,7 +33,7 @@
         <!-- FORMULARZ I BAZA  -->
         <TabControl Grid.Row="1">
             <!-- GUI Uczenia -->
-            <TabItem Header="Uczen">
+            <TabItem Header="Uczen" Name="tabUczen">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
@@ -168,7 +168,7 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="0">Wyszukaj po imieniu</Label>
-                            <TextBox Grid.Column="1" TextChanged="TextBox_TextChanged" />
+                            <TextBox Grid.Column="1" TextChanged="TextBox_TextChanged" Name="searchUcz" />
                         </Grid>
                         <!-- DataGrid -->
                         <DataGrid Name="datagridUczen" Height="400">
@@ -203,7 +203,7 @@
             <!-- Koniec GUI Ucznia -->
 
             <!-- GUI Nauczyciela -->
-            <TabItem Header="Nauczyciel">
+            <TabItem Header="Nauczyciel" Name="tabNauczyciel">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="28*"/>
@@ -387,7 +387,7 @@
             <!-- Koniec GUI Nauczyciela -->
 
             <!-- GUI Pracownika -->
-            <TabItem Header="Pracownik">
+            <TabItem Header="Pracownik" Name="tabPracownik">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="23*"/>
