@@ -220,8 +220,8 @@ namespace Sekretariat
                         uczenKlasa = line[8],
                         uczenGrupa = line[9]
                     };
-                    list.Add(uczen);
-                    datagridUczen.Items.Add(list);
+                    //list.Add(uczen);
+                    datagridUczen.Items.Add(uczen);
                 }
             }
         }
