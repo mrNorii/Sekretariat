@@ -87,7 +87,9 @@ ________________________________________________________________________________
     
         30.12.2021
         - Filtrowanie za pomoca imienia, proby 
+        - Zaladowanie bazy poprawne!!
 
+        Podsumowujac, staralem sie przynajmiej sprobowac kazdy podpunkt ale czesto wychodzilo to miernie. Ale mam nadzieje ze coś z tego bedzie :D
 */
 
 namespace Sekretariat
@@ -124,19 +126,25 @@ namespace Sekretariat
         //Dodawanie danych z formularza do bazy
         private void dodajDaneU(object sender, RoutedEventArgs e)
         {
-            Uczen tempUczen = new Uczen();
-            tempUczen.uczenImie = imieU.Text;
-            tempUczen.uczenDrugieImie = dimieU.Text;
-            tempUczen.uczenNazwisko = nazwiskoU.Text;
-            tempUczen.uczenNazwiskoPanienskie = nazwiskoPanU.Text;
-            tempUczen.uczenImionaRodzicow = imionarodzU.Text;
-            tempUczen.uczenDataUrodzenia = dataurU.Text;
-            tempUczen.uczenPesel = peselU.Text;
-            tempUczen.uczenPlec = plecU.Text;
-            tempUczen.uczenKlasa = klasaU.Text;
-            tempUczen.uczenGrupa = grupaU.Text;
+            if(imieU.Text.Length <1)
+                MessageBox.Show("Wprowadz dane!");
+            else
+            {
+                Uczen tempUczen = new Uczen();
+                tempUczen.uczenImie = imieU.Text;
+                tempUczen.uczenDrugieImie = dimieU.Text;
+                tempUczen.uczenNazwisko = nazwiskoU.Text;
+                tempUczen.uczenNazwiskoPanienskie = nazwiskoPanU.Text;
+                tempUczen.uczenImionaRodzicow = imionarodzU.Text;
+                tempUczen.uczenDataUrodzenia = dataurU.Text;
+                tempUczen.uczenPesel = peselU.Text;
+                tempUczen.uczenPlec = plecU.Text;
+                tempUczen.uczenKlasa = klasaU.Text;
+                tempUczen.uczenGrupa = grupaU.Text;
 
-            datagridUczen.Items.Add(tempUczen);
+                datagridUczen.Items.Add(tempUczen);
+            }
+            
         }
 
         //Wczytanie Zdjecia Uczen
@@ -153,8 +161,7 @@ namespace Sekretariat
         //Załadowanie Bazy Ucznia z pliku CSV (Excel) 
         private void zaladujBazeU(object sender, RoutedEventArgs e)
         {
-            /*//https://www.youtube.com/watch?v=aIsMwEAiOKs
-            OpenFileDialog ofd = new OpenFileDialog();
+            /*OpenFileDialog ofd = new OpenFileDialog();
             ofd.ShowDialog();
 
             Uczen StudentInfo = new Uczen();
@@ -241,28 +248,34 @@ namespace Sekretariat
             dt.WriteXml(sfd.FileName);*/
             
         }
+
         //------------------KONIEC UCZEN----------------------
 
         //------------------NAUCZYCIEL----------------------
-        
+
         //Dodawanie danych z formularza do bazy
         private void dodajDaneN(object sender, RoutedEventArgs e)
         {
-            nauczyciel tempNauczyciel = new nauczyciel();
-            tempNauczyciel.nauczycielImie = imieN.Text;
-            tempNauczyciel.nauczycielDrugieImie = dimieN.Text;
-            tempNauczyciel.nauczycielNazwisko = nazwiskoN.Text;
-            tempNauczyciel.nauczycielNazwiskoPanienskie = nazwiskoPanN.Text;
-            tempNauczyciel.nauczycielImionaRodzicow = imionarodzN.Text;
-            tempNauczyciel.nauczycielDataUrodzenia = dataurN.Text;
-            tempNauczyciel.nauczycielPesel = peselN.Text;
-            tempNauczyciel.nauczycielPlec = plecN.Text;
-            tempNauczyciel.nauczycielWychowawstwo = wychowawstwoN.Text;
-            tempNauczyciel.nauczycielPrzedmiotyNauczania = przedmiotynauczaniaN.Text;
-            tempNauczyciel.nauczycielKlasyNauczania = klasagodzinyN.Text;
-            tempNauczyciel.nauczycielDataZatr = datazatrN.Text;
+            if (imieN.Text.Length < 1)
+                MessageBox.Show("Wprowadz dane!");
+            else
+            {
+                nauczyciel tempNauczyciel = new nauczyciel();
+                tempNauczyciel.nauczycielImie = imieN.Text;
+                tempNauczyciel.nauczycielDrugieImie = dimieN.Text;
+                tempNauczyciel.nauczycielNazwisko = nazwiskoN.Text;
+                tempNauczyciel.nauczycielNazwiskoPanienskie = nazwiskoPanN.Text;
+                tempNauczyciel.nauczycielImionaRodzicow = imionarodzN.Text;
+                tempNauczyciel.nauczycielDataUrodzenia = dataurN.Text;
+                tempNauczyciel.nauczycielPesel = peselN.Text;
+                tempNauczyciel.nauczycielPlec = plecN.Text;
+                tempNauczyciel.nauczycielWychowawstwo = wychowawstwoN.Text;
+                tempNauczyciel.nauczycielPrzedmiotyNauczania = przedmiotynauczaniaN.Text;
+                tempNauczyciel.nauczycielKlasyNauczania = klasagodzinyN.Text;
+                tempNauczyciel.nauczycielDataZatr = datazatrN.Text;
 
-            datagridNauczyciel.Items.Add(tempNauczyciel);
+                datagridNauczyciel.Items.Add(tempNauczyciel);
+            }
         }
 
         //Wczytanie zdjecia Nauczyciel
@@ -306,8 +319,8 @@ namespace Sekretariat
                         nauczycielKlasyNauczania = line[10],
                         nauczycielDataZatr = line[11]
                     };
-                    list.Add(nauczyciel);
-                    datagridUczen.Items.Add(list);
+                    //list.Add(nauczyciel);
+                    datagridUczen.Items.Add(nauczyciel);
                 }
             }
         }
@@ -323,21 +336,25 @@ namespace Sekretariat
         //Dodawanie danych z formularza do bazy
         private void dodajDaneP(object sender, RoutedEventArgs e)
         {
-            Pracownik tempPracownik = new Pracownik();
-            tempPracownik.pracownikImie = imieP.Text;
-            tempPracownik.pracownikDrugieImie = dimieP.Text;
-            tempPracownik.pracownikNazwisko = nazwiskoP.Text;
-            tempPracownik.pracownikNazwiskoPanienskie = nazwiskopaP.Text;
-            tempPracownik.pracownikImionaRodzicow = imionarodzP.Text;
-            tempPracownik.pracownikDataUrodzenia = dataurP.Text;
-            tempPracownik.pracownikPesel = peselP.Text;
-            tempPracownik.pracownikPlec = plecP.Text;
-            tempPracownik.pracownikEtat = etatP.Text;
-            tempPracownik.pracownikStanowisko = stanowiskoP.Text;
-            tempPracownik.pracownikDataZatrudnienia = datazatP.Text;
-            
+            if (imieP.Text.Length < 1)
+                MessageBox.Show("Wprowadz dane!");
+            else
+            {
+                Pracownik tempPracownik = new Pracownik();
+                tempPracownik.pracownikImie = imieP.Text;
+                tempPracownik.pracownikDrugieImie = dimieP.Text;
+                tempPracownik.pracownikNazwisko = nazwiskoP.Text;
+                tempPracownik.pracownikNazwiskoPanienskie = nazwiskopaP.Text;
+                tempPracownik.pracownikImionaRodzicow = imionarodzP.Text;
+                tempPracownik.pracownikDataUrodzenia = dataurP.Text;
+                tempPracownik.pracownikPesel = peselP.Text;
+                tempPracownik.pracownikPlec = plecP.Text;
+                tempPracownik.pracownikEtat = etatP.Text;
+                tempPracownik.pracownikStanowisko = stanowiskoP.Text;
+                tempPracownik.pracownikDataZatrudnienia = datazatP.Text;
 
-            datagridPracownik.Items.Add(tempPracownik);
+                datagridPracownik.Items.Add(tempPracownik);
+            }
         }
 
         //Wczytanie zdjecia Pracownika
@@ -380,8 +397,8 @@ namespace Sekretariat
                         pracownikStanowisko = line[9],
                         pracownikDataZatrudnienia = line[10]
                     };
-                    list.Add(pracownik);
-                    datagridUczen.Items.Add(list);
+                    //list.Add(pracownik);
+                    datagridUczen.Items.Add(pracownik);
                 }
             }
         }
@@ -410,12 +427,10 @@ namespace Sekretariat
             tabPracownik.IsSelected = true;
         }
 
-        private void grupujU(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        //----------------Searching---------------------------------
+        //Wywala błąd
+        //Uczen
+        private void TextBox_TextChangedU(object sender, TextChangedEventArgs e)
         {
             string tempString = searchUcz.Text.ToLower().ToString();
             List<Uczen> uczniowie = new List<Uczen>();
@@ -423,6 +438,28 @@ namespace Sekretariat
             datagridUczen.ItemsSource = null;
             datagridUczen.ItemsSource = zfiltrowanie;
             datagridUczen.Items.Refresh();
+        }
+
+        //Nauczyciel
+        private void TextBox_TextChangedN(object sender, TextChangedEventArgs e)
+        {
+            string tempString = searchN.Text.ToLower().ToString();
+            List<nauczyciel> nauczyciele = new List<nauczyciel>();
+            var zfiltrowanie = nauczyciele.Where(x => x.nauczycielImie.ToLower().Contains(tempString));
+            datagridNauczyciel.ItemsSource = null;
+            datagridNauczyciel.ItemsSource = zfiltrowanie;
+            datagridNauczyciel.Items.Refresh();
+        }
+
+        //Pracownik
+        private void TextBox_TextChangedP(object sender, TextChangedEventArgs e)
+        {
+            string tempString = searchP.Text.ToLower().ToString();
+            List<Pracownik> pracownicy = new List<Pracownik>();
+            var zfiltrowanie = pracownicy.Where(x => x.pracownikImie.ToLower().Contains(tempString));
+            datagridPracownik.ItemsSource = null;
+            datagridPracownik.ItemsSource = zfiltrowanie;
+            datagridPracownik.Items.Refresh();
         }
     }
 }
