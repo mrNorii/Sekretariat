@@ -24,6 +24,12 @@
                     <MenuItem Header="Przejdz do Pracownik" InputGestureText="Ctrl+P" Click="menuClickP"/>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Info">
+                <MenuItem Header="Author" Click="menuClickAuthor"/>
+                <MenuItem Header="Version" Click="menuClickVersion"/>
+                <MenuItem Header="Language" Click="menuClickLanguage"/>
+            </MenuItem>
+            <MenuItem Header="Help" Click="menuClickHelp" />
         </Menu>
         <!-- Koniec menu -->
 

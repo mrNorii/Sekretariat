@@ -88,6 +88,7 @@ ________________________________________________________________________________
         30.12.2021
         - Filtrowanie za pomoca imienia, proby 
         - Zaladowanie bazy poprawne!!
+        - Dodanie kilka opcji w menu
 
         Podsumowujac, staralem sie przynajmiej sprobowac kazdy podpunkt ale czesto wychodzilo to miernie. Ale mam nadzieje ze coś z tego bedzie :D
 */
@@ -460,6 +461,27 @@ namespace Sekretariat
             datagridPracownik.ItemsSource = null;
             datagridPracownik.ItemsSource = zfiltrowanie;
             datagridPracownik.Items.Refresh();
+        }
+
+        //Dodatkowe rzeczy w menu
+        private void menuClickAuthor(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Author: Kamil Sabiron");
+        }
+
+        private void menuClickVersion(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Version: Alpha");
+        }
+
+        private void menuClickLanguage(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Languege: Polish");
+        }
+
+        private void menuClickHelp(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Function is in progress...");
         }
     }
 }
